@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестик</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="pink" opacity="0.2" d="M50,30 C60,10 80,10 90,30 C100,50 50,80 50,80 C50,80 0,50 10,30 C20,10 40,10 50,30 Z"/></svg>');
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ffccd5;
+            border-radius: 8px;
+            background-color: #fff9fa;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .option {
+            padding: 8px;
+            border: 1px solid #ffb6c1;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #ffebee;
+        }
+        button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #000;
+        }
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff9fa;
+            border-radius: 8px;
+            border-left: 5px solid #e91e63;
+            display: none;
+            white-space: pre-line;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        .score {
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+        .rainbow-text {
+      font-size: 60px;
+      font-weight: bold;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 1400% 1400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="rainbow-text">Тест для Акони</span></h1>
+        
+        <div class="question">
+            <p>1.когда день рождения у тебя?</p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(1, this)">07.07.07</div>
+                <div class="option" onclick="checkAnswer(1, this)">08.08.08</div>
+                <div class="option correct" onclick="checkAnswer(1, this)">09.09.09</div>
+                <div class="option" onclick="checkAnswer(1, this)">10.10.10</div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>2. цвет прекрасниеших глаз?</p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(2, this)">синий</div>
+                <div class="option" onclick="checkAnswer(2, this)">зелёный</div>
+                <div class="option correct" onclick="checkAnswer(2, this)">карие</div>
+                <div class="option" onclick="checkAnswer(2, this)">черный</div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>3.цвет волос?</p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(3, this)">черный</div>
+                <div class="option correct" onclick="checkAnswer(3, this)">медовый</div>
+                <div class="option" onclick="checkAnswer(3, this)">красный</div>
+                <div class="option" onclick="checkAnswer(3, this)">синий</div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>4.у кого из них приятный голос?</p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(4, this)">Ибрагим</div>
+                <div class="option" onclick="checkAnswer(4, this)">Жанель</div>
+                <div class="option correct" onclick="checkAnswer(4, this)">Аконя</div>
+                <div class="option" onclick="checkAnswer(4, this)">ни у кого</div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>5. где живет самая красивая девушка на земле?</p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(5, this)">Almaty</div>
+                <div class="option correct" onclick="checkAnswer(5, this)">Atyrau</div>
+                <div class="option" onclick="checkAnswer(5, this)">Astana</div>
+                <div class="option" onclick="checkAnswer(5, this)">Shymkent</div>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>6.какой клас ты закончила?</p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(6, this)">7</div>
+                <div class="option" onclick="checkAnswer(6, this)">8</div>
+                <div class="option correct" onclick="checkAnswer(6, this)">9</div>
+                <div class="option" onclick="checkAnswer(6, this)">10</div>
+            </div>
+        </div>
+        
+        <button onclick="showResult()">Finish Test</button>
+        
+        <div id="result">
+            <div class="score">твой результат <span id="score">0</span>/6</div>
+        
+                <!--Tab to edit-->
+Не могу уснуть я, представляя карие глаза,
+Думаю почему же, ты не моя.
+Ожидая телеграмму я от тебя,
+Возжелал видеть только лиш тебя.
+Мучаюсь мукою я , как же сильно я люблю тебя.
+
+Не настанет день,когда я смогу тебя разлюбить,
+Милая моя, хочу сказать что ты никогда, не будешь одна.
+Степь наш счастливый момент,
+До сих пор не смогла запечетлить.
+Барьером стало расстояние,
+Прекрасной земли.
+
+не знаю как сказать что,
+Люблю я тебя.
+Прими это стихотворение,
+Ведь ты одна такая,
+Милая,красивая,умна
+Ты мне судьбою, быть может, дана.
+<video width="400" height="250" controls autoplay muted loop>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+
+
+
+        </div>
+    </div>
+
+    <script>
+        let correctAnswers = 0;
+        const totalQuestions = 6;
+        
+        function checkAnswer(questionNumber, element) {
+            // Reset all options for this question
+            const options = element.parentElement.children;
+            for (let option of options) {
+                option.style.backgroundColor = '';
+                option.style.color = '';
+            }
+            
+            // Highlight selected option
+            element.style.backgroundColor = '#ffe6eb';
+            element.style.color = '#e91e63';
+            
+            // Check if correct
+            if (element.classList.contains('correct')) {
+                element.dataset.correct = 'true';
+            } else {
+                element.dataset.correct = 'false';
+            }
+        }
+        
+        function showResult() {
+            correctAnswers = 0;
+            
+            // Check all questions
+            const allOptions = document.querySelectorAll('.option');
+            allOptions.forEach(option => {
+                if (option.style.backgroundColor === 'rgb(255, 230, 235)') {
+                    if (option.dataset.correct === 'true') {
+                        correctAnswers++;
+                        option.style.backgroundColor = '#e8f5e9';
+                    } else {
+                        option.style.backgroundColor = '#ffebee';
+                    }
+                }
+            });
+            
+            // Show result
+            document.getElementById('score').textContent = correctAnswers;
+            document.getElementById('result').style.display = 'block';
+            
+            // Scroll to result
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
